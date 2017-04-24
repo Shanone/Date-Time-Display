@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Current day and time</title>
+  <style media="screen">
+#demo{
+
+  background-color: springgreen;
+  height:300px;;
+  font-size: 130px;
+  font-family:verdana sans-serif;
+  text-align: center;
+  margin-bottom:-5px;
+  padding-top:30px;
+  border:5px solid goldenrod;
+
+
+}
+#fate{
+
+  background-color: navy;
+  height:300px;
+text-align: center;
+  font-size: 130px;
+  font-family:Bodoni MT;
+color:white;
+padding-top:30px;
+border:5px solid goldenrod;
+margin-bottom:10px;
+}
+  </style>
+</head>
+<body>
+  <div id="demo">Today is:<span id="date" >dayhere</span></div>
+  <div id="fate">Current Time is:<span id="hours">h</span><span id="ampm">ampm</span>:<span id="minutes">m</span>:<span id="seconds">s</span></div>
+<script>
+
+//Date()method gives the current date and time//
+var d=new Date();
+
+//sorting the array of days to give Today's day//
+var days=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"]
+document.getElementById("date").innerHTML = days[d.getDay()];
+
+//d.getHours() method givesthe current hour of the day in 24Hours format, %12||12 is used to convert it into 12Hours format//
+document.getElementById("hours").innerHTML = d.getHours()%12||12;
+// debugger;
+
+
+//Using if condition to display AMPM//
+x=d.getHours();
+
+if (x>= 12) {
+
+
+    dd = "PM";
+  }
+  else{
+    dd="AM";
+  }
+document.getElementById("ampm").innerHTML =dd;
+
+
+//Using d.getMinutes() and d.getSeconds() methods to get minutes and seconds//
+document.getElementById("minutes").innerHTML = (d.getMinutes());
+document.getElementById("seconds").innerHTML = d.getSeconds();
+</script>
+
+</body>
+</html>
